@@ -3,6 +3,39 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">C# AI Chatbot POC MK1</h1>
+
+
+
+    <script setup lang="ts">
+        import { random } from 'lodash';
+        import { defineComponent, ref, onMounted } from 'vue';
+
+        const randomMessages = ["As an AI language model, I don't have feelings, but I'm here and ready to assist you with any questions or tasks you have. How can I help you today?", "Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible. Honey's long shelf life is due to its low moisture content and acidic pH, which create an inhospitable environment for bacteria and other microorganisms. So, if stored properly, honey can remain delicious and safe to consume for an exceptionally long time!", "Lorem Ipsum"];
+        const typingDelay = 30; // Adjust typing speed here
+
+        const responses: Ref<string[]> = ref([]);
+        const animatedText = ref('');
+
+        function send() {
+            if (animatedText.value) {
+                responses.value.push(animatedText.value);
+                animatedText.value = '';
+            }
+
+            const index = Math.floor(Math.random() * 2)
+            let newMessage = randomMessages[index];
+
+            let currentIndex = 0;
+            const typingInterval = setInterval(() => {
+                if (currentIndex === newMessage.length) {
+                    clearInterval(typingInterval);
+                } else {
+                    animatedText.value += newMessage[currentIndex];
+                    currentIndex++;
+                }
+            }, typingDelay);
+        }
+    </script>
+
 </div>
