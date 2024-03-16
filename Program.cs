@@ -21,10 +21,12 @@ var embeddingGenerator = new OpenAITextEmbeddingGenerationService(embeddingModel
 // The combination of the text embedding generator and the memory store makes up the 'SemanticTextMemory' object used to
 // store and retrieve memories.
 SemanticTextMemory textMemory = new(store, embeddingGenerator);
+ChatSetup chatSetup = new ChatSetup();
+await chatSetup.OpenAIMultiChatCompletionAsync(modelId, apiKey);
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
