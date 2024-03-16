@@ -1,5 +1,7 @@
-﻿//Create an array where the message along with it's ID will be stored.
+﻿
+//Create an array where the message along with it's ID will be stored.
 let message = [];
+const i = 0;
 
 // This fuction will enables us to add the message to the DOM
 function addMessage(text) {
@@ -28,7 +30,52 @@ function addMessage(text) {
 
     );
 
+    //const requestOptions = {
+    //    method: 'POST',
+    //    headers: {
+    //        'Content-Type': 'application/json',
+    //    },
+    //    body: JSON.stringify(data),
+    //};
+
+    //const data = {
+    //    InputMessage: chat.text
+    //};
+    //fetch(apiUrl, requestOptions, data);
+
+        fetchdemo();
+
 }
+
+
+
+
+
+
+const apiUrl = 'https://api.example.com/data';
+
+function fetchdemo() {
+
+        addAIMessage('An attribute is a way to add additional metadata to a programming construct, such as a class, method, or property, in C#. It provides a means of associating additional data with the construct it decorates. Attributes appear within square brackets preceding the construct they decorate. They can be used to provide additional information or behavior to the construct at runtime or compile-time.');
+        
+}
+
+
+//fetch(apiUrl, requestOptions, data)
+//    .then(response => {
+//        if (!response.ok) {
+//            throw new Error('Network response was not ok');
+//        }
+//        return response.json();
+//    })
+//    .then(data => {
+//        // Display data in an HTML element
+//        addAIMessage(JSON.stringify(data, null, 2));
+//    })
+//    .catch(error => {
+//        console.error('Error:', error);
+//    });
+
 
 function addAIMessage(text) {
     //Object where message will be stored
@@ -46,7 +93,7 @@ function addAIMessage(text) {
             <div b-qeqqfkh6ta class="received-chats">
                             <div b-qeqqfkh6ta class="received-msg">
                                 <div b-qeqqfkh6ta class="received-msg-inbox">
-                                    <p>
+                                    <p b-qeqqfkh6ta>
                                        ${AIchat.text}
                                     </p>
                                 </div>
