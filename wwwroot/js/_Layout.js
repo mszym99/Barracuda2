@@ -12,7 +12,7 @@ function addMessage(text) {
     message.push(chat);
 
     //Render message to the screen
-    const list = document.querySelector('.msg-page');
+    const list = document.querySelector('.msg-bottom');
     list.insertAdjacentHTML('beforebegin',
         `
             <div b-qeqqfkh6ta class="outgoing-chats">
@@ -21,6 +21,7 @@ function addMessage(text) {
                                     <p b-qeqqfkh6ta class="multi-msg">
                                        ${chat.text}
                                     </p>
+                                    <span>${new Date().toString() }</span>
                                 </div>
                             </div>
                         </div>`
@@ -39,7 +40,7 @@ function addAIMessage(text) {
     message.push(AIchat);
 
     //Render message to the screen
-    const list = document.querySelector('.msg-page');
+    const list = document.querySelector('.msg-bottom');
     list.insertAdjacentHTML('beforebegin',
         `
             <div b-qeqqfkh6ta class="received-chats">
