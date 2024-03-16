@@ -2,15 +2,21 @@ using Barracuda2.Helpers;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Microsoft.SemanticKernel.Memory;
+var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddUserSecrets<Program>();
+builder.Services.Configure<OpenAIOptions>(builder.Configuration.GetSection(OpenAIOptions.SectionName));
+builder.Configuration.AddJsonFile("appsettings.json").AddEnvironmentVariables();
+builder.Services.Configure<OpenAIOptions>(builder.Configuration.GetSection(nameof(OpenAIOptions)));
+var ms = new MemoryStore();
+builder.Services.AddScoped<IMemoryStore>(service =>
+    ms.CreateSamplePostgresMemoryStore()
+);
+
+
 string? endpoint = "endpoint";
 string? modelId = "gpt-3.5-turbo";
 string? embeddingModel = "text-embedding-3-small";
-string? apiKey = "";
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Configuration.AddJsonFile("appsettings.json").AddEnvironmentVariables();
-IMemoryStore store = MemoryStore.CreateSamplePostgresMemoryStore();
+string? apiKey = Environment.GetEnvironmentVariable("OPENAI:OPENAI_API_KEY");
 var kernel = Kernel.CreateBuilder()
             .AddOpenAIChatCompletion(modelId, apiKey)
             .AddOpenAITextEmbeddingGeneration(embeddingModel, apiKey)
