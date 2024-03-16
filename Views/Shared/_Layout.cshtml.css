@@ -149,8 +149,134 @@ input:focus {
     box-shadow: none !important;
 }
 
+received-chats-img {
+    display: inline-block;
+    width: 50px;
+    float: left;
+}
+
+.received-msg {
+    display: inline-block;
+    padding: 0 0 0 10px;
+    vertical-align: top;
+    width: 92%;
+}
+
+.received-msg-inbox {
+    width: 57%;
+}
+
+.received-msg-inbox p {
+    background: #efefef none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #646464;
+    font-size: 14px;
+    margin-left: 1rem;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 25%) 0px 5px 5px 2px;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.time {
+    color: #777;
+    display: block;
+    font-size: 12px;
+    margin: 8px 0 0;
+}
+
+.outgoing-chats {
+    overflow: hidden;
+    margin: 26px 20px;
+
+}
+
+.outgoing-chats-msg p {
+    background-color: #3a12ff;
+    position: relative;
+    float: right;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px 10px 5px 12px;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: rgb(0 0 0 / 25%) 0px 2px 5px 2px;
+}
+
+.outgoing-chats-msg {
+    float: right;
+    width: 46%;
+}
+
+/* Styling the avatar */
+.outgoing-chats-img {
+    display: inline-block;
+    width: 50px;
+    float: right;
+    margin-right: 1rem;
+}
+
 .send-icon {
     font-weight: bold !important;
+}
+
+@media only screen and (max-device-width: 850px) {
+    *,
+    .time {
+        font-size: 28px;
+    }
+
+    img {
+        width: 65px;
+    }
+
+    .msg-header {
+        height: 5%;
+    }
+
+    .msg-page {
+        max-height: none;
+    }
+
+    .received-msg-inbox p {
+        font-size: 28px;
+    }
+
+    .outgoing-chats-msg p {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-device-width: 450px) {
+    *,
+    .time {
+        font-size: 28px;
+    }
+
+    img {
+        width: 65px;
+    }
+
+    .msg-header {
+        height: 5%;
+    }
+
+    .msg-page {
+        max-height: none;
+    }
+
+    .received-msg-inbox p {
+        font-size: 28px;
+    }
+
+    .outgoing-chats-msg p {
+        font-size: 28px;
+    }
 }
 
 .btn-primary {
